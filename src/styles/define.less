@@ -1,0 +1,168 @@
+/*!
+ * @名称：define.scss
+ * @功能：重设浏览器默认样式
+ */
+
+/* 内外边距通常让各个览器样式的表现位置不同 */
+html,
+body,
+div,
+dl,
+dt,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+textarea,
+P,
+th,
+td,
+button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    /* 兼容饿了吗弹出层跳动问题 */
+    padding: 0 !important;
+}
+
+/* 要注意表单元素并不继承父级font的问题 */
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: -apple-system-font, "Helvetica Neue", Tahoma, "PingFang SC", "Microsoft Yahei", sans-serif;
+
+    font-weight: normal;
+}
+
+/* 去掉table cel1的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    empty-cells: show;
+    font-size: 100%;
+}
+
+/* ie bug:th不继承text-align */
+th {
+    text-align: inherit;
+}
+
+iframe {
+    display: block;
+}
+
+/* 去掉列表前的标识，1i会继承 */
+ol,
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input {
+    -webkit-appearance: none
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+i {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+// 滚动条
+.scrollbar {
+
+    /* 定义滚动条高宽及背景高宽分别对应横竖滚动条的尺寸 */
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        background-color: transparent;
+    }
+
+    /* 定义滚动条轨道内阴影+圆角 */
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 00 6px transparent;
+        border-radius: 10px;
+        background-color: #ddd;
+    }
+
+    /* 定义滑块内阴影+圆角 */
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 00 6px transparent;
+        background-color: #ccc;
+    }
+}
+
+.scrollbar-hover {
+
+    /* 定义滚动条高宽及背景高宽分别对应横竖滚动条的尺寸 */
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 6px;
+    }
+
+    &.hover:hover::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical {
+        height: 5px;
+        background-color: #ddd;
+        border-radius: 6px
+    }
+
+    &::-webkit-scrollbar-thumb:horizontal {
+        width: 5px;
+        background-color: transparent;
+        border-radius: 6px;
+    }
+}
+
+.no-scrollbar {
+
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-track-piece {
+        visibility: hidden;
+    }
+}

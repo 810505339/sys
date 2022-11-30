@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "packageManager": "pnpm@7.12.0",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --host --open",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "test": "vitest",
+    "up": "taze major -I"
+  },
+  "dependencies": {
+    "@vicons/ionicons5": "^0.12.0",
+    "@vueuse/core": "^9.5.0",
+    "axios": "^1.1.3",
+    "echarts": "^5.4.0",
+    "naive-ui": "^2.34.0",
+    "pinia": "^2.0.24",
+    "vue": "^3.2.45",
+    "qs": "^6.11.0",
+    "vue-i18n": "^9.3.0-beta.10",
+    "vue-router": "^4.1.6",
+    "vuedraggable": "^4.1.0",
+    "zhyswan-vuedraggable": "^4.1.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.27.0",
+    "@iconify-json/carbon": "^1.1.10",
+    "@types/node": "^18.11.9",
+    "@types/qs": "^6.9.7",
+    "@unocss/reset": "^0.45.30",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue-jsx": "^2.1.1",
+    "@vue/test-utils": "^2.2.4",
+    "eslint": "^8.28.0",
+    "jsdom": "^20.0.3",
+    "less": "^3.13.1",
+    "less-loader": "^5.0.0",
+    "pnpm": "^7.17.0",
+    "taze": "^0.8.4",
+    "typescript": "^4.9.3",
+    "unocss": "^0.45.30",
+    "unplugin-auto-import": "^0.11.4",
+    "unplugin-vue-components": "^0.22.9",
+    "vite": "^3.2.4",
+    "vite-plugin-pages": "^0.26.0",
+    "vitest": "^0.23.4",
+    "vue-tsc": "^1.0.9"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  }
+}
