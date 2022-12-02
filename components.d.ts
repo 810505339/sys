@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BarChart: typeof import('./src/components/nation/barChart.vue')['default']
+    BarChart1: typeof import('./src/components/nation/barChart1.vue')['default']
     CardItem: typeof import('./src/components/cardItem.vue')['default']
     Header: typeof import('./src/components/header.vue')['default']
     IndexHeader: typeof import('./src/components/indexHeader.vue')['default']

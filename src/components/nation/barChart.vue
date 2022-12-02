@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-11-26 17:07:25
+ * @LastEditTime: 2022-12-02 16:17:42
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\barChart.vue
@@ -13,6 +13,8 @@ const barDom = ref<HTMLElement>();
 const option: echarts.EChartsOption = {
     grid: {
         bottom: 25,
+         right: 0,
+         left:50
     },
     xAxis: {
         type: 'category',
@@ -37,7 +39,7 @@ const option: echarts.EChartsOption = {
         },
     },
     title: {
-        text: '单位：月',
+        // text: '寿命单位：年\n维修单位：月',
         textStyle: {
             // 标题样式
             color: '#00C7FA',
@@ -59,6 +61,7 @@ const option: echarts.EChartsOption = {
                 },
             },
         },
+
     ],
 };
 

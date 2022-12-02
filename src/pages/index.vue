@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-11-18 16:04:20
+ * @LastEditTime: 2022-12-02 14:52:11
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\pages\index.vue
@@ -36,6 +36,9 @@ const themeOverrides: GlobalThemeOverrides = {
   Input: {
     loadingColor: '#ffff',
   },
+  Tree:{
+    nodeColorHover: '#02152d'
+  }
 }
 </script>
 

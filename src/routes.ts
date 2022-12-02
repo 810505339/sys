@@ -1,7 +1,7 @@
 /*
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-11-20 22:04:36
+ * @LastEditTime: 2022-12-02 10:52:46
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\routes.ts
@@ -45,6 +45,11 @@ const routes: RouteRecordRaw[] = [
         name: 'configTable',
         path: '/configTable',
         component: () => import('~/pages/WorldSituation/configTable.vue'),
+      },
+      {
+        name: 'configDetail',
+        path: '/configDetail',
+        component: () => import('~/pages/WorldSituation/configDetail.vue'),
       },
     ],
   },

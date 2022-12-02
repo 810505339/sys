@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-28 10:44:29
- * @LastEditTime: 2022-11-29 21:31:59
+ * @LastEditTime: 2022-11-30 11:02:03
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\navBox.vue
@@ -21,8 +21,8 @@ const emit = defineEmits(['moreClick'])
   <div class="nav-box" relative w-full  h="100%" box-border>
     <img :src="borderBg" w-full h="100%" absolute>
     <div relative box-border h="100%">
-      <div text-base flex justify-between font-bold pt8 px-7>
-        <span>{{ title }}</span>
+      <div text-base flex justify-between font-xs pt8 px-7>
+        <span class="text-lg font-bold">{{ title }}</span>
          <div v-if="isMore" class="text-color1"  bottom-5 right-5 cursor-pointer @click="emit('moreClick')">
         更多>
       </div>

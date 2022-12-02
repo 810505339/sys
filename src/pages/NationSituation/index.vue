@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-11-29 21:32:56
+ * @LastEditTime: 2022-11-30 09:41:17
  * @LastEditors: yxx
  * @Description:全国态势
  * @FilePath: \project20221116\src\pages\NationSituation\index.vue
@@ -729,7 +729,7 @@ provide('changeShow', {
 
 <style lang="css" scoped>
 :deep(.col) {
-  color: #B5E0FC !important;
+  color: #fff !important;
   background: #02152D;
   text-align: center;
 }
@@ -737,7 +737,7 @@ provide('changeShow', {
 :deep(.title) {
   width: 100%;
   text-align: center;
-  color: #00C7FA;
+  color: var(--color-primary1);
   font-weight: bold;
 }
 

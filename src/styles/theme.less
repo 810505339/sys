@@ -12,12 +12,13 @@
   --color-bg3:#0789AA;
   --color-tb:#1C3454;
   --color-tb1:#153D6D;
+  --color-tb2:#026882;
   --color-text:#799FB2;
   --color-text1:#B5E0FC;
   --n-caret-color:@default;
   --n-border-active: 1px solid @default;
-    --n-border-focus: 1px solid @default;
-    --n-border-hover: 1px solid @default;
+  --n-border-focus: 1px solid @default;
+  --n-border-hover: 1px solid @default;
 
 }
 // 文字颜色
@@ -27,7 +28,9 @@
 .text-color1{
   color: rgba(255, 255, 255, 0.2);
 }
-
+.text-color2{
+  color:var(--color-primary1)
+}
 // 边框颜色
 .border-color{
   border-color: var(--color-border);
@@ -43,7 +46,7 @@
   border-color: var(--color-border-index);
 }
 .n-scrollbar-rail__scrollbar{
-  background-color: var(--color-primary)!important;
+  background-color: var(--color-tb2)!important;
 }
 .n-scrollbar-rail{
   border-right: 1px solid rgba(0,199,250,0.3)!important;

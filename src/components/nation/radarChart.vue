@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-11-26 20:06:11
+ * @LastEditTime: 2022-12-02 16:13:39
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\radarChart.vue
@@ -30,19 +30,19 @@ const option: echarts.EChartsOption = {
                 max: 6500,
             },
             {
-                name: '灴品系统',
+                name: '测发控系统',
                 max: 16000,
             },
             {
-                name: '灴品系统',
+                name: '瞄准系统',
                 max: 30000,
             },
             {
-                name: '控制系统',
+                name: '伺服系统',
                 max: 38000,
             },
             {
-                name: '动力系统',
+                name: '控制系统',
                 max: 38000,
             },
         ],

@@ -114,6 +114,57 @@ const dataArr = {
       c: 99,
     },
   },
+  唐山市: {
+    data: [
+      { title: 'DD-02', city: '内蒙古', num: '12' },
+      { title: 'DD-02', city: '内蒙古', num: '21' },
+      { title: 'DD-02', city: '内蒙古', num: '21' },
+    ],
+    columns: [{
+      key: 'title',
+      className: 'col',
+      title() {
+        return h(
+          'div',
+          {
+            class: 'title',
+          },
+          '厂家名称',
+        )
+      },
+    },
+    {
+      title() {
+        return h(
+          'div',
+          {
+            class: 'title',
+          },
+          '所在市',
+        )
+      },
+      key: 'city',
+      className: 'col',
+    },
+    {
+      title() {
+        return h(
+          'div',
+          {
+            class: 'title',
+          },
+          '设备数量',
+        )
+      },
+      key: 'num',
+      className: 'col',
+    }],
+    sum: {
+      a: 108,
+      b: 77,
+      c: 99,
+    },
+  },
 }
 watch(() => city, (nVal) => {
   data = dataArr[nVal as keyof typeof dataArr].data
@@ -123,14 +174,14 @@ watch(() => city, (nVal) => {
 </script>
 
 <template>
-  <div class="pb-10" bg="#02152D" v-if="toggle">
-      <n-data-table
+  <div v-if="toggle" class="pb-10 border-[#00C7FA] bg-[rgba(2,21,45,0.96)]" border>
+    <n-data-table
       :data="data" :columns="columns" :bordered="false" :pagination="false" :max-height="220"
       w="330px"
     />
-    <div absolute text="#00C7FA" bottom-3 right-1 cursor-pointer @click="changeShow">
-        更多>
-      </div>
+    <div absolute text="rgba(255, 255, 255, 0.2);" text-3 bottom-3 right-1 cursor-pointer @click="changeShow">
+      更多>
+    </div>
   </div>
 
   <div v-else bg="#02152D" h32 w40 text="center #B5E0FC" font-bold relative box-border py1>

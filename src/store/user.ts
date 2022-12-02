@@ -1,7 +1,7 @@
 /*
  * @Author: yxx
  * @Date: 2022-10-24 15:46:47
- * @LastEditTime: 2022-11-23 21:40:01
+ * @LastEditTime: 2022-12-02 10:25:10
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\store\user.ts
@@ -19,6 +19,7 @@ import bg3 from '~/assets/images/nationSituation/bg3.png'
 import bgl from '~/assets/images/nationSituation/bgl.png'
 import top from '~/assets/images/nationSituation/top.png'
 import title from '~/assets/images/nationSituation/title.png'
+import top1 from '~/assets/images/nationSituation/top1.png'
 
 
 export const useUserStore = defineStore('user', () => {
@@ -40,6 +41,7 @@ export const useUserStore = defineStore('user', () => {
         bg3,
         bgl,
         top,
+        top1,
         title
       },
       indexBgColor: '#02152D',

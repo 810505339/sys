@@ -219,7 +219,7 @@ const edit = (type: number) => {
   enabled = false
 }
 const cardClass = (width: number) => {
-  const widthList = ['w32%', 'w65.5%', 'w98%']
+  const widthList = ['w32.6%', 'w65.8%', 'w99%']
   return `${widthList[width - 1]}`
 }
 const add = () => {
@@ -259,6 +259,17 @@ function end({ oldIndex, newIndex }: any) {
   copyList.splice(fIndex, 1, card)
   cardSelect = copyList
 }
+function save() {
+  console.log(cardSelect)
+  if (!enabled) {
+    mes.error('请先保存编辑')
+    return
+  }
+
+  const infoItem = types.find(item => item.value === type)
+  infoItem!.select = cardSelect
+  mes.success('保存成功')
+}
 </script>
 
 <template>
@@ -273,9 +284,10 @@ function end({ oldIndex, newIndex }: any) {
           <n-select v-model:value="type" class="text-center w-80% m-auto mb-7.5" :options="types" />
         </div>
       </div>
-      <div border="~ #00C7FA" h150 mt4 overflow-auto>
+      <div border="~ #00C7FA" h140 mt4 overflow-auto>
         <CardItem
-          v-for="item, index in infoList" :key="item.type" m3 :item="{ span: item.span, title: item.title }"
+          v-for="item, index in infoList" :key="item.type" m3
+          :item="{ span: item.span, title: item.title, type: item.type }"
           :style="{ opacity: (selectType.includes(item.type)) ? '1' : '0.4' }" @click="cardClick(item, index)"
         >
           <div text="center" h="100%" flex items-center justify-center size="large">
@@ -324,7 +336,7 @@ function end({ oldIndex, newIndex }: any) {
             <div :key="element.type" :class="{ 'not-draggable': !enabled }">
               <CardItem
                 class="list-group-item" cursor-pointer
-                :item="{ span: card(element.type)?.width, title: card(element.type)?.title }"
+                :item="{ span: card(element.type)?.width, title: card(element.type)?.title, type: element.type }"
                 @dblclick="edit(card(element.type)!.type)"
               />
             </div>
@@ -332,6 +344,11 @@ function end({ oldIndex, newIndex }: any) {
         </template>
       </draggable>
     </div>
+  </div>
+  <div flex justify-end px10>
+    <n-button type="info" @click="save">
+      确定
+    </n-button>
   </div>
 </template>
 
@@ -355,6 +372,7 @@ function end({ oldIndex, newIndex }: any) {
 
 .list-group-item {
   cursor: move;
+  height: calc((100vh - 13.5rem) / 3);
 }
 
 .list-group-item i {
