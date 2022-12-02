@@ -179,7 +179,7 @@ watch(() => city, (nVal) => {
       :data="data" :columns="columns" :bordered="false" :pagination="false" :max-height="220"
       w="330px"
     />
-    <div absolute text="rgba(255, 255, 255, 0.2);" text-3 bottom-3 right-1 cursor-pointer @click="changeShow">
+    <div absolute text="#666666" text-3 bottom-3 right-1 cursor-pointer @click="changeShow">
       更多>
     </div>
   </div>
@@ -200,7 +200,7 @@ watch(() => city, (nVal) => {
       </span>
       {{ sum.c }}
     </div>
-    <div absolute text="#00C7FA" bottom-1 right-1 cursor-pointer @click="changeShow">
+    <div absolute text="#666666" text-3 bottom-1 right-1 cursor-pointer @click="changeShow">
       更多>
     </div>
   </div>

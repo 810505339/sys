@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-02 11:10:44
+ * @LastEditTime: 2022-12-02 21:41:41
  * @LastEditors: yxx
  * @Description:全球态势配置新增编辑
  * @FilePath: \project20221116\src\pages\WorldSituation\configDetail.vue
@@ -343,13 +343,50 @@ const router = useRouter();
                     />
                 </n-form-item>
                 <n-form-item label="武器名称" path="weaponName">
-                    <n-select
-                        v-model:value="model.weaponName"
-                        placeholder="请选择武器名称"
-                        :options="weaponNames"
-                    />
+                    <n-space>
+                        <n-input
+                            v-model:value="model.weaponName"
+                            placeholder="请输入武器名称"
+                            :options="weaponNames"
+                        />
+                        <n-input
+                            v-model:value="model.color"
+                            placeholder="请输入颜色"
+                            :options="places"
+                        />
+                        <n-input-number
+                            v-model:value="model.opacity"
+                            placeholder="请输入尺寸"
+                            :step="0.01"
+                            :min="0"
+                            :max="100"
+                        >
+                        </n-input-number>
+                    </n-space>
                 </n-form-item>
-                <n-form-item label="武器" path="weapon">
+                <n-form-item label="武器符号" path="weaponName">
+                    <n-space>
+                        <n-input
+                            v-model:value="model.weaponName"
+                            placeholder="请输入武器符号"
+                            :options="weaponNames"
+                        />
+                        <n-input
+                            v-model:value="model.color"
+                            placeholder="请输入颜色"
+                            :options="places"
+                        />
+                        <n-input-number
+                            v-model:value="model.opacity"
+                            placeholder="请输入尺寸"
+                            :step="0.01"
+                            :min="0"
+                            :max="100"
+                        >
+                        </n-input-number>
+                    </n-space>
+                </n-form-item>
+                <n-form-item label="武器种类" path="weapon">
                     <n-select
                         v-model:value="model.weapon"
                         placeholder="请选择武器"
@@ -357,13 +394,28 @@ const router = useRouter();
                     />
                 </n-form-item>
                 <n-form-item label="作战半径/射程范围" path="range">
-                    <n-input-number
-                        v-model:value="model.range"
-                        placeholder="请输入"
-                        :precision="2"
-                    >
-                        <template #suffix> KM </template>
-                    </n-input-number>
+                    <n-space>
+                        <n-input-number
+                            v-model:value="model.range"
+                            placeholder="请输入半径/范围"
+                            :precision="2"
+                        >
+                            <template #suffix> KM </template>
+                        </n-input-number>
+                        <n-input
+                            v-model:value="model.color"
+                            placeholder="请输入颜色"
+                            :options="places"
+                        />
+                        <n-input-number
+                            v-model:value="model.opacity"
+                            placeholder="请输入透明度"
+                            :step="0.01"
+                            :min="0"
+                            :max="1"
+                        >
+                        </n-input-number>
+                    </n-space>
                 </n-form-item>
                 <n-form-item label="重要等级" path="grade">
                     <n-select
@@ -372,10 +424,17 @@ const router = useRouter();
                         :options="grades"
                     />
                 </n-form-item>
-                <n-form-item label="部署地点" path="place">
-                    <n-select
-                        v-model:value="model.place"
-                        placeholder="请选择部署地点"
+                <n-form-item label="部署地点经度" path="longitude">
+                    <n-input
+                        v-model:value="model.longitude"
+                        placeholder="请输入经度"
+                        :options="places"
+                    />
+                </n-form-item>
+                <n-form-item label="部署地点纬度" path="latitude">
+                    <n-input
+                        v-model:value="model.latitude"
+                        placeholder="请输入纬度"
                         :options="places"
                     />
                 </n-form-item>
@@ -429,7 +488,5 @@ const router = useRouter();
             box-shadow: none;
         }
     }
-
-
 }
 </style>

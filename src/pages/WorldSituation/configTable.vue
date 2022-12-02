@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-02 15:11:03
+ * @LastEditTime: 2022-12-02 22:27:55
  * @LastEditors: yxx
  * @Description:全球态势配置表格
  * @FilePath: \project20221116\src\pages\WorldSituation\configTable.vue
@@ -34,47 +34,62 @@ const createColumns = ({
         },
         {
             title: '国家',
-            key: 'title',
+            key: 'nation',
             align: 'center',
         },
         {
             title: '武器名称',
-            key: 'length',
+            key: 'name',
+            align: 'center',
+            ellipsis: {
+                tooltip: true,
+            },
+        },
+        {
+            title: '武器种类',
+            key: 'kind',
             align: 'center',
         },
         {
-            title: '武器',
-            key: 'length',
+            title: '武器符号',
+            key: 'symbol',
             align: 'center',
         },
         {
             title: '作战半径/射程范围（KM）',
+            key: 'radius',
             align: 'center',
-            key: 'length',
+            ellipsis: {
+                tooltip: true,
+            },
         },
         {
             title: '重要等级',
-            key: 'length',
+            key: 'class',
             align: 'center',
         },
         {
             title: '部署地点',
-            key: 'length',
+            key: 'place',
             align: 'center',
         },
         {
             title: '数量',
-            key: 'length',
+            key: 'num',
             align: 'center',
         },
         {
             title: '部署时间',
-            key: 'length',
+            key: 'time',
             align: 'center',
+            ellipsis: {
+                tooltip: true,
+            },
         },
         {
             title: '操作',
             key: 'actions',
+            align: 'center',
             render(row) {
                 return [
                     h(
@@ -126,30 +141,175 @@ const del = (row) => {
 // 编辑
 const edit = (row) => {
     showModal.value = true;
+    title.value = '编辑';
     console.log(row);
 };
 const data: Song[] = [
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
-    { no: 3, title: 'Wonderwall', length: '4:18' },
-    { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
-    { no: 12, title: 'Champagne Supernova', length: '7:27' },
+    {
+        no: 1,
+        nation: '中国',
+        name: 'DD',
+        kind: '固定',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '10个',
+        time: '2022年5月12日',
+    },
+    {
+        no: 2,
+        nation: '中国',
+        name: 'DD',
+        kind: '车载',
+        radius: '600',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '20辆',
+        time: '2022年6月12日',
+    },
+    {
+        no: 3,
+        nation: '中国',
+        name: '潜基',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '80艘',
+        time: '2022年5月12日',
+    },
+    {
+        no: 4,
+        nation: '中国',
+        name: '空基',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '60架',
+        time: '2022年8月12日',
+    },
+    {
+        no: 5,
+        nation: '中国',
+        name: '投掷',
+        kind: 'DD',
+        radius: '1000',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '55架',
+        time: '2022年9月12日',
+    },
+    {
+        no: 6,
+        nation: '美国',
+        name: '固定',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '10个',
+        time: '2022年5月12日',
+    },
+    {
+        no: 7,
+        nation: '美国',
+        name: '车载',
+        kind: 'DD',
+        radius: '600',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '20辆',
+        time: '2022年6月12日',
+    },
+    {
+        no: 8,
+        nation: '美国',
+        name: '潜基',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '80艘',
+        time: '2022年5月12日',
+    },
+    {
+        no: 9,
+        nation: '美国',
+        name: '空基',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '60架',
+        time: '2022年5月12日',
+    },
+    {
+        no: 10,
+        nation: '美国',
+        name: '投掷',
+        kind: 'DD',
+        radius: '1000',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '55架',
+        time: '2022年5月12日',
+    },
+    {
+        no: 11,
+        nation: '俄罗斯',
+        name: '固定',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '10个',
+        time: '2022年5月12日',
+    },
+    {
+        no: 12,
+        nation: '俄罗斯',
+        name: '车载',
+        kind: 'DD',
+        radius: '600',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '20辆',
+        time: '2022年6月12日',
+    },
+    {
+        no: 13,
+        nation: '俄罗斯',
+        name: '潜基',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '80艘',
+        time: '2022年5月12日',
+    },
+    {
+        no: 14,
+        nation: '俄罗斯',
+        name: '空基',
+        kind: 'DD',
+        radius: '800',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '60架',
+        time: '2022年5月12日',
+    },
+    {
+        no: 15,
+        nation: '俄罗斯',
+        name: '投掷',
+        kind: 'DD',
+        radius: '1000',
+        class: 'Ⅱ',
+        place: '北京',
+        num: '55架',
+        time: '2022年5月12日',
+    },
 ];
 // 选中
 const columns = createColumns({
@@ -244,54 +404,38 @@ const weaponNames = ref([
 ]);
 const weapons = ref([
     {
-        label: '中',
+        label: '固定',
         value: 'song0',
     },
     {
-        label: '俄罗斯',
+        label: '车载',
         value: 'song1',
     },
     {
-        label: '美',
+        label: '投掷',
         value: 'song2',
     },
     {
-        label: '英',
+        label: '潜基',
         value: 'song3',
-    },
-    {
-        label: '法',
-        value: 'song4',
-    },
-    {
-        label: '其他',
-        value: 'song5',
     },
 ]);
 const grades = ref([
     {
-        label: '中',
+        label: 'I',
         value: 'song0',
     },
     {
-        label: '俄罗斯',
+        label: 'II',
         value: 'song1',
     },
     {
-        label: '美',
+        label: 'III',
         value: 'song2',
     },
     {
-        label: '英',
+        label: 'IIII',
         value: 'song3',
-    },
-    {
-        label: '法',
-        value: 'song4',
-    },
-    {
-        label: '其他',
-        value: 'song5',
     },
 ]);
 const places = ref([
@@ -347,8 +491,6 @@ const places1 = ref([
     },
 ]);
 
-
-
 const router = useRouter();
 </script>
 
@@ -373,9 +515,8 @@ const router = useRouter();
                             <n-button
                                 type="info"
                                 @click="
-                                    router.push({
-                                        path: '/configDetail',
-                                    })
+                                    showModal = true;
+                                    title = '新增';
                                 "
                             >
                                 新增
@@ -408,6 +549,162 @@ const router = useRouter();
                 </div>
             </div>
         </div>
+        <n-modal v-model:show="showModal" class="config-modal">
+            <n-card
+                style="width: 50vw"
+                :title="title"
+                :bordered="false"
+                size="huge"
+                role="dialog"
+                aria-modal="true"
+            >
+                <n-form
+                    ref="formRef"
+                    :model="model"
+                    :rules="rules"
+                    label-placement="left"
+                    label-width="auto"
+                    require-mark-placement="right-hanging"
+                    size="small"
+                >
+                    <n-form-item label="国家" path="country">
+                        <n-select
+                            v-model:value="model.country"
+                            placeholder="请选择国家"
+                            :options="countrys"
+                            w-45
+                        />
+                    </n-form-item>
+                    <n-form-item label="武器名称" path="weaponName">
+                        <n-space>
+                            <n-input
+                                v-model:value="model.weaponName"
+                                placeholder="请输入武器名称"
+                                :options="weaponNames"
+                            />
+                            <n-input
+                                v-model:value="model.color"
+                                placeholder="请输入颜色"
+                                :options="places"
+                            />
+                            <n-input-number
+                                v-model:value="model.opacity"
+                                placeholder="请输入尺寸"
+                                :step="0.01"
+                                :min="0"
+                                :max="100"
+                            >
+                            </n-input-number>
+                        </n-space>
+                    </n-form-item>
+                    <n-form-item label="武器符号" path="weaponName">
+                        <n-space>
+                            <n-input
+                                v-model:value="model.weaponName"
+                                placeholder="请输入武器符号"
+                                :options="weaponNames"
+                            />
+                            <n-input
+                                v-model:value="model.color"
+                                placeholder="请输入颜色"
+                                :options="places"
+                            />
+                            <n-input-number
+                                v-model:value="model.opacity"
+                                placeholder="请输入尺寸"
+                                :step="0.01"
+                                :min="0"
+                                :max="100"
+                            >
+                            </n-input-number>
+                        </n-space>
+                    </n-form-item>
+                    <n-form-item label="武器种类" path="weapon">
+                        <n-select
+                            v-model:value="model.weapon"
+                            placeholder="请选择武器"
+                            :options="weapons"
+                            w-45
+                        />
+                    </n-form-item>
+                    <n-form-item label="作战半径/射程范围" path="range">
+                        <n-space>
+                            <n-input-number
+                                v-model:value="model.range"
+                                placeholder="请输入半径/范围"
+                                :precision="2"
+                            >
+                                <template #suffix> KM </template>
+                            </n-input-number>
+                            <n-input
+                                v-model:value="model.color"
+                                placeholder="请输入颜色"
+                                :options="places"
+                            />
+                            <n-input-number
+                                v-model:value="model.opacity"
+                                placeholder="请输入透明度"
+                                :step="0.01"
+                                :min="0"
+                                :max="1"
+                            >
+                            </n-input-number>
+                        </n-space>
+                    </n-form-item>
+                    <n-form-item label="重要等级" path="grade">
+                        <n-select
+                            v-model:value="model.grade"
+                            placeholder="请选择重要等级"
+                            :options="grades"
+                            w-45
+                        />
+                    </n-form-item>
+                    <n-form-item label="部署地点经/纬度" path="longitude">
+                        <n-space>
+                            <n-input
+                                v-model:value="model.longitude"
+                                placeholder="请输入经度"
+                                :options="places"
+                                w-45
+                            />
+                            <n-input
+                                v-model:value="model.latitude"
+                                placeholder="请输入纬度"
+                                :options="places"
+                            />
+                        </n-space>
+                    </n-form-item>
+                    <n-form-item label="数量" path="number">
+                        <n-input-number
+                            v-model:value="model.number"
+                            placeholder="请输入"
+                            :min="1"
+                        />
+                    </n-form-item>
+                    <n-form-item label="部署时间" path="time">
+                        <n-date-picker
+                            v-model:value="model.time"
+                            placeholder="请选择部署时间"
+                            type="date"
+                        />
+                    </n-form-item>
+                </n-form>
+                <template #footer>
+                    <div class="flex justify-end">
+                        <n-space>
+                            <n-button
+                                type="info"
+                                ghost
+                                @click="showModal = false"
+                            >
+                                取消
+                            </n-button>
+                            <n-button type="info"> 确定 </n-button>
+                        </n-space>
+                    </div>
+                </template>
+            </n-card>
+        </n-modal>
     </div>
 </template>
 
@@ -599,5 +896,7 @@ const router = useRouter();
             }
         }
     }
+}
+.config-table {
 }
 </style>
