@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-02 15:19:53
+ * @LastEditTime: 2022-12-03 09:24:41
  * @LastEditors: yxx
  * @Description:首页头
  * @FilePath: \project20221116\src\components\indexHeader.vue
@@ -16,7 +16,7 @@ const style =
 
 <template>
     <div
-        class="h-23 index-header flex px-9 bg-contain bg-center"
+        class="h-23 index-header flex px-9 bg-contain bg-no-repeat bg-center"
         :style="`background-image:url(${style.bgImages.indexHeaderBg}) `"
     >
         <div class="w-100 mt-5">欢迎您来到综保信息系统！</div>

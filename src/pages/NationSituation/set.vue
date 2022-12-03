@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-11-20 21:55:49
+ * @LastEditTime: 2022-12-03 09:34:20
  * @LastEditors: yxx
  * @Description:配置页
  * @FilePath: \project20221116\src\pages\NationSituation\set.vue
@@ -273,7 +273,7 @@ function save() {
 </script>
 
 <template>
-  <div class="relative flex w98% mx-auto mt-4" relative>
+  <div class="relative set-content flex w98% mx-auto mt-4" relative>
     <div w110>
       <div w110 h44 overflow-hidden>
         <img :src="borderBg" inset-0 absolute w110 h44 z="0">
@@ -284,7 +284,7 @@ function save() {
           <n-select v-model:value="type" class="text-center w-80% m-auto mb-7.5" :options="types" />
         </div>
       </div>
-      <div border="~ #00C7FA" h140 mt4 overflow-auto>
+      <div border="~ #00C7FA" class="left" mt4 overflow-auto>
         <CardItem
           v-for="item, index in infoList" :key="item.type" m3
           :item="{ span: item.span, title: item.title, type: item.type }"
@@ -305,7 +305,7 @@ function save() {
         </CardItem>
       </div>
     </div>
-    <div w="100%" h="100%" ml4>
+    <div w="100%" h="100%" class="right" ml4>
       <draggable
         v-model="cardSelect" :multi-drag="true" :swap="true" item-key="type" border="~ dashed #00C7FA"
         class="flex flex-wrap" v-bind="dragOptions" :disabled="!enabled"
@@ -343,16 +343,27 @@ function save() {
           </div>
         </template>
       </draggable>
+       <div flex justify-end mt-4>
+        <n-button type="info" @click="save">
+          确定
+        </n-button>
+      </div>
     </div>
+
   </div>
-  <div flex justify-end px10>
-    <n-button type="info" @click="save">
-      确定
-    </n-button>
-  </div>
+
 </template>
 
-<style scoped>
+<style lang="less" scoped>
+.set-content{
+  .left{
+    height: calc(100vh - 5.375rem - 1.75rem - 13.5rem);
+  }
+  .right{
+    height: calc(100vh - 5.375rem - 1.75rem - 3rem);
+    border: 1px dashed var(--color-primary);
+  }
+}
 .flip-list-move {
   transition: transform 0.5s;
 }

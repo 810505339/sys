@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-02 22:27:55
+ * @LastEditTime: 2022-12-03 09:36:42
  * @LastEditors: yxx
  * @Description:全球态势配置表格
  * @FilePath: \project20221116\src\pages\WorldSituation\configTable.vue
@@ -498,7 +498,10 @@ const router = useRouter();
     <div class="config-table-content p-4">
         <div class="flex mx-auto">
             <div class="mt-20 relative right-4">
-                <div class="text-color2">实力范围</div>
+                <n-checkbox v-model:checked="value">
+                    <div class="text-color2">实力范围</div>
+                </n-checkbox>
+
                 <div class="left w-20 mr-4 mt-4 py-10 px-8">
                     <p mb-10 v-for="(item, index) in places1" :key="index">
                         {{ item.label }}
