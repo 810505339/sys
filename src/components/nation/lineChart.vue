@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-12-02 16:39:38
+ * @LastEditTime: 2022-12-03 18:02:15
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\lineChart.vue
@@ -26,7 +26,17 @@ const option: echarts.EChartsOption = {
     },
     xAxis: {
         type: 'category',
-        data: ['本级产品1', '下级', '下级112'],
+        data: [
+            '本级产品1',
+            '下级',
+            '下级112',
+            '本级产品1',
+            '下级',
+            '下级112',
+            '本级产品1',
+            '下级',
+            '下级112',
+        ],
         axisLabel: {
             color: '#00C7FA',
         },
@@ -105,8 +115,9 @@ const option: echarts.EChartsOption = {
               }
             : '',
         {
-            data: [24, 58, 36],
+            data: [24, 58, 36, 24, 58, 36, 10, 20, 30],
             type: 'line',
+            color:'#EF4560',
             itemStyle: {
                 normal: {
                     areaStyle: {
@@ -119,7 +130,7 @@ const option: echarts.EChartsOption = {
                             colorStops: [
                                 {
                                     offset: 1,
-                                    color: '#3097E2',
+                                    color: '#EF4560',
                                 },
                                 {
                                     offset: 0,
@@ -129,24 +140,24 @@ const option: echarts.EChartsOption = {
                         },
                     },
                     lineStyle: {
-                        color: '#3097E2', //线的颜色 #00A870
+                        color: '#EF4560', //线的颜色 #00A870
                     },
                 },
                 // color: (params) => {
-                //     const colorList = ['#3097E2'];
+                //     const colorList = ['#EF4560'];
                 //     return colorList[params.dataIndex];
                 // },
             },
         },
     ],
 };
-
+let barChart: any = {}
 /**
  * @description: 初始化图表所需配置项
  * @return {*}
  */
 const renderCharts = () => {
-    const barChart = echarts.init(lineDom.value!);
+    barChart = echarts.init(lineDom.value!);
     barChart.clear();
     barChart.setOption(option);
 };
@@ -156,6 +167,9 @@ defineExpose({
 onMounted(() => {
     renderCharts();
 });
+useResizeObserver(lineDom, () => {
+  barChart.resize()
+})
 </script>
 
 <template>

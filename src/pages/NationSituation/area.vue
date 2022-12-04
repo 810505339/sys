@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-02 18:18:55
+ * @LastEditTime: 2022-12-03 18:25:44
  * @LastEditors: yxx
  * @Description:区域态势
  * @FilePath: \project20221116\src\pages\NationSituation\area.vue
@@ -10,6 +10,8 @@
 import { defineComponent, ref } from 'vue';
 import { repeat } from 'seemly';
 import { TreeOption, useMessage, DropdownOption } from 'naive-ui';
+import pz09 from '~/assets/images/nationSituation/pz09.png';
+
 const userStore = useUserStore();
 const style =
     userStore.themeColor[
@@ -27,47 +29,46 @@ const types = ref([
         label: '7981型号',
         value: 'song1',
     },
+    // {
+    //     label: '7982型号',
+    //     value: 'song2',
+    // },
+    // {
+    //     label: '7983型号',
+    //     value: 'song3',
+    // },
+    // {
+    //     label: '7984型号',
+    //     value: 'song4',
+    // },
+    // {
+    //     label: '7985型号',
+    //     value: 'song5',
+    // },
+]);
+const types1 = ref([
     {
-        label: '7982型号',
-        value: 'song2',
+        label: '电压参数测量',
+        value: 'song0',
     },
     {
-        label: '7983型号',
-        value: 'song3',
-    },
-    {
-        label: '7984型号',
-        value: 'song4',
-    },
-    {
-        label: '7985型号',
-        value: 'song5',
+        label: '电阻参数测量',
+        value: 'song1',
     },
 ]);
+
 const lots = ref([
     {
-        label: '01批',
-        value: '01批',
+        label: '01批/01发',
+        value: '01批/01发',
     },
     {
-        label: '01发',
-        value: '01发',
+        label: '02批/02发',
+        value: '02批/02发',
     },
     {
-        label: '02批',
-        value: '02批',
-    },
-    {
-        label: '02发',
-        value: '02发',
-    },
-    {
-        label: '03批',
-        value: '03批',
-    },
-    {
-        label: '03发',
-        value: '03发',
+        label: '03批/03发',
+        value: '03批/03发',
     },
 ]);
 const chooseType = ref('xh');
@@ -341,23 +342,23 @@ watch(
 const lists0 = ref([
     {
         name: '型号名称：',
-        value: '电子标签技术',
+        value: '789型号',
     },
     {
         name: '已生产批次：',
-        value: 'SRGH001',
+        value: '3批',
     },
     {
         name: '已生产发次：',
-        value: '贮存',
+        value: '9发',
     },
     {
         name: '总体质量等级：',
-        value: '宝钢2厂',
+        value: '优秀',
     },
     {
         name: '质量评价：',
-        value: '宝钢2厂',
+        value: '本型号总体健康状况优异',
     },
 ]);
 const lists = ref([
@@ -605,10 +606,10 @@ const columns9 = ref([
 
 const dataTable: Song[] = [
     { no: 3, title: '伺服系统', length: '4:18' },
-    { no: 4, title: "伺服系统1", length: '4:48' },
+    { no: 4, title: '伺服系统1', length: '4:48' },
     { no: 12, title: '伺服系统2', length: '7:27' },
     { no: 3, title: '伺服系统3', length: '4:18' },
-    { no: 4, title: "伺服单机", length: '4:48' },
+    { no: 4, title: '伺服单机', length: '4:48' },
     { no: 12, title: 'Champagne Supernova', length: '7:27' },
     { no: 3, title: 'Wonderwall', length: '4:18' },
     { no: 4, title: "Don't Look Back in Anger", length: '4:48' },
@@ -628,51 +629,172 @@ const dataTable: Song[] = [
 ];
 const dataTable1: Song[] = [
     { no: 3, title: '伺服系统', length: '1个' },
-    { no: 4, title: "伺服机构1", length: '1个' },
+    { no: 4, title: '伺服机构1', length: '1个' },
     { no: 12, title: '伺服单机', length: '1个' },
     { no: 3, title: '伺服机构2', length: '1个' },
-    { no: 4, title: "伺服单机", length: '1个' },
+    { no: 4, title: '伺服单机', length: '1个' },
     { no: 12, title: '引爆装置', length: '50个' },
     { no: 3, title: '螺母', length: '210个' },
-    { no: 4, title: "螺栓", length: '300个' },
+    { no: 4, title: '螺栓', length: '300个' },
     { no: 12, title: '头状螺栓', length: '500个' },
     { no: 3, title: '电片', length: '500个' },
-    { no: 4, title: "吸铁石", length: '500个' },
+    { no: 4, title: '吸铁石', length: '500个' },
 ];
 const dataTable6: Song[] = [
-    { no: 3, title: '伺服系统', length: '6个月',time:'2022.9',time1:'3个月' },
-    { no: 4, title: "控制组合1", length: '6个月',time:'2022.9',time1:'3个月' },
-    { no: 12, title: '控制单机主', length: '6个月',time:'2022.9',time1:'3个月' },
-    { no: 3, title: '控制单机备', length: '6个月',time:'2022.9',time1:'3个月' },
-    { no: 4, title: "控制组合2", length: '6个月',time:'2022.9',time1:'3个月' },
-    { no: 12, title: '控制组合2', length: '6个月',time:'2022.9',time1:'3个月' },
-    { no: 3, title: '控制单机备', length: '210个',time:'2022.9',time1:'3个月' },
+    {
+        no: 3,
+        title: '伺服系统',
+        length: '6个月',
+        time: '2022.9',
+        time1: '3个月',
+    },
+    {
+        no: 4,
+        title: '控制组合1',
+        length: '6个月',
+        time: '2022.9',
+        time1: '3个月',
+    },
+    {
+        no: 12,
+        title: '控制单机主',
+        length: '6个月',
+        time: '2022.9',
+        time1: '3个月',
+    },
+    {
+        no: 3,
+        title: '控制单机备',
+        length: '6个月',
+        time: '2022.9',
+        time1: '3个月',
+    },
+    {
+        no: 4,
+        title: '控制组合2',
+        length: '6个月',
+        time: '2022.9',
+        time1: '3个月',
+    },
+    {
+        no: 12,
+        title: '控制组合2',
+        length: '6个月',
+        time: '2022.9',
+        time1: '3个月',
+    },
+    {
+        no: 3,
+        title: '控制单机备',
+        length: '210个',
+        time: '2022.9',
+        time1: '3个月',
+    },
 ];
 const dataTable4: Song[] = [
-    { title: '控制系统', length: '偶然',msg:'控制系统无响应',num:'1',xx:'敏感装置失效',yy:'未知',js:'已修理' },
-    { title: '控制组合1', length: '偶然',msg:'伺服系统无响应',num:'1',xx:'驱动电机失效',yy:'未知',js:'已修理' },
-    { title: '控制单机主', length: '偶然',msg:'控制单机主无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-    { title: '控制单机备', length: '偶然',msg:'控制系统无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-    { title: '控制组合2', length: '偶然',msg:'控制系统无响应',num:'1',xx:'测试设备失效',yy:'未知',js:'已修理' },
-    { title: '控制单机主', length: '偶然',msg:'控制系统无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-    { title: '控制单机备', length: '偶然',msg:'控制系统无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-    { title: '伺服系统', length: '偶然',msg:'控制系统无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-    { title: '瞄准系统', length: '偶然',msg:'控制系统无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-    { title: '测发控系统', length: '偶然',msg:'控制系统无响应',num:'1',xx:'启动无效',yy:'未知',js:'已修理' },
-
+    {
+        title: '控制系统',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '敏感装置失效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '控制组合1',
+        length: '偶然',
+        msg: '伺服系统无响应',
+        num: '1',
+        xx: '驱动电机失效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '控制单机主',
+        length: '偶然',
+        msg: '控制单机主无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '控制单机备',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '控制组合2',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '测试设备失效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '控制单机主',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '控制单机备',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '伺服系统',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '瞄准系统',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
+    {
+        title: '测发控系统',
+        length: '偶然',
+        msg: '控制系统无响应',
+        num: '1',
+        xx: '启动无效',
+        yy: '未知',
+        js: '已修理',
+    },
 ];
 watch(
     () => active1.value,
     () => {
-      barChart1.value[0].renderCharts();
-      // pieChart.value[0].renderCharts();
-    },
+        barChart1.value[0].renderCharts();
+        // pieChart.value[0].renderCharts();
+    }
 );
 watch(
     () => active.value,
     () => {
         barChart.value[0].renderCharts();
-    },
+    }
 );
 const data = ref([
     {
@@ -1294,6 +1416,7 @@ export default defineComponent({
             lots,
             standAlone,
             types,
+            types1,
             cardType,
             chooseType,
             lists0,
@@ -1316,6 +1439,7 @@ export default defineComponent({
             dataTable6,
             dataTable4,
             data,
+            pz09,
             defaultExpandedKeys: ref(['40', '41']),
             showDropdown: showDropdownRef,
             x: xRef,
@@ -1351,8 +1475,19 @@ export default defineComponent({
 <template>
     <div class="area-content p-3">
         <div class="text-right">
-            <span class="btn1">定检维修提醒</span>
-            <span class="btn2">校验检定报警提醒</span>
+            <span class="btn1">
+                <img w-4 mr-1 align-middle :src="pz09" alt="" />
+                定检维修提醒</span
+            >
+            <span class="btn2"
+                ><img
+                    w-4
+                    mr-1
+                    align-middle
+                    :src="pz09"
+                    alt=""
+                />校验检定报警提醒</span
+            >
         </div>
         <n-grid :x-gap="12" :y-gap="12">
             <n-gi :span="6">
@@ -1448,7 +1583,7 @@ export default defineComponent({
                             <div class="flex h-full" v-if="item.type == 7">
                                 <div class="left-ul">
                                     <div
-                                        class="text-center w-9 py-4"
+                                        class="text-center w-9"
                                         :class="{ in: item.id == active1 }"
                                         v-for="(item, index) in lefts"
                                         :key="index"
@@ -1459,6 +1594,7 @@ export default defineComponent({
                                 <div class="flex-1 h-full">
                                     <BarChart1
                                         :type="item.type"
+                                        :active="active1"
                                         v-if="item.echart == 'bar'"
                                         ref="barChart1"
                                     />
@@ -1473,7 +1609,7 @@ export default defineComponent({
                                 <n-select
                                     class="w-40 mb-2"
                                     placeholder="请选择"
-                                    :options="types"
+                                    :options="types1"
                                 />
                                 <div class="w-full h-80%">
                                     <LineChart
@@ -1526,7 +1662,7 @@ export default defineComponent({
                                 >
                                     <div class="left-ul">
                                         <div
-                                            class="text-center w-9 py-4"
+                                            class="text-center w-9"
                                             :class="{ in: item.id == active }"
                                             v-for="(item, index) in lefts1"
                                             :key="index"
@@ -1584,6 +1720,9 @@ export default defineComponent({
             background: url(~/assets/images/nationSituation/top1.png) no-repeat
                 center/contain;
             background-size: 100% auto;
+            .n-base-suffix {
+                right: 25%;
+            }
         }
         .n-base-icon {
             color: var(--color-primary);
@@ -1598,8 +1737,15 @@ export default defineComponent({
         display: inline-block;
         > div {
             position: relative;
-            right: 1.5rem;
+            right: 1.6rem;
             background: url(~/assets/images/left2.png) no-repeat center/cover;
+            background-size: auto 100%;
+            cursor: pointer;
+            height:48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
             // border: 2px solid var(--color-primary);
             &:first-child {
                 position: relative;
@@ -1607,8 +1753,7 @@ export default defineComponent({
                 z-index: 1;
             }
             &.in {
-                background: url(~/assets/images/left1.png) no-repeat
-                    center/cover;
+                background-image: url(~/assets/images/left1.png);
                 //  position: relative;
                 //  z-index: 1;
                 // background: var(--color-bg3);

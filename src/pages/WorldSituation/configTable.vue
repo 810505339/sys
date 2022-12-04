@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-03 09:36:42
+ * @LastEditTime: 2022-12-03 17:46:20
  * @LastEditors: yxx
  * @Description:全球态势配置表格
  * @FilePath: \project20221116\src\pages\WorldSituation\configTable.vue
@@ -207,7 +207,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '800',
         class: 'Ⅱ',
-        place: '北京',
+        place: '华盛顿',
         num: '10个',
         time: '2022年5月12日',
     },
@@ -218,7 +218,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '600',
         class: 'Ⅱ',
-        place: '北京',
+        place: '华盛顿',
         num: '20辆',
         time: '2022年6月12日',
     },
@@ -229,7 +229,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '800',
         class: 'Ⅱ',
-        place: '北京',
+        place: '华盛顿',
         num: '80艘',
         time: '2022年5月12日',
     },
@@ -240,7 +240,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '800',
         class: 'Ⅱ',
-        place: '北京',
+        place: '华盛顿',
         num: '60架',
         time: '2022年5月12日',
     },
@@ -251,7 +251,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '1000',
         class: 'Ⅱ',
-        place: '北京',
+        place: '华盛顿',
         num: '55架',
         time: '2022年5月12日',
     },
@@ -262,7 +262,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '800',
         class: 'Ⅱ',
-        place: '北京',
+        place: '列宁格勒',
         num: '10个',
         time: '2022年5月12日',
     },
@@ -273,7 +273,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '600',
         class: 'Ⅱ',
-        place: '北京',
+        place: '列宁格勒',
         num: '20辆',
         time: '2022年6月12日',
     },
@@ -284,7 +284,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '800',
         class: 'Ⅱ',
-        place: '北京',
+        place: '列宁格勒',
         num: '80艘',
         time: '2022年5月12日',
     },
@@ -295,7 +295,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '800',
         class: 'Ⅱ',
-        place: '北京',
+        place: '列宁格勒',
         num: '60架',
         time: '2022年5月12日',
     },
@@ -306,7 +306,7 @@ const data: Song[] = [
         kind: 'DD',
         radius: '1000',
         class: 'Ⅱ',
-        place: '北京',
+        place: '列宁格勒',
         num: '55架',
         time: '2022年5月12日',
     },
@@ -591,7 +591,6 @@ const router = useRouter();
                                 :options="places"
                             />
                             <n-input-number
-                                v-model:value="model.opacity"
                                 placeholder="请输入尺寸"
                                 :step="0.01"
                                 :min="0"
@@ -603,17 +602,14 @@ const router = useRouter();
                     <n-form-item label="武器符号" path="weaponName">
                         <n-space>
                             <n-input
-                                v-model:value="model.weaponName"
                                 placeholder="请输入武器符号"
                                 :options="weaponNames"
                             />
                             <n-input
-                                v-model:value="model.color"
                                 placeholder="请输入颜色"
                                 :options="places"
                             />
                             <n-input-number
-                                v-model:value="model.opacity"
                                 placeholder="请输入尺寸"
                                 :step="0.01"
                                 :min="0"
@@ -640,7 +636,6 @@ const router = useRouter();
                                 <template #suffix> KM </template>
                             </n-input-number>
                             <n-input
-                                v-model:value="model.color"
                                 placeholder="请输入颜色"
                                 :options="places"
                             />
@@ -679,7 +674,6 @@ const router = useRouter();
                     </n-form-item>
                     <n-form-item label="数量" path="number">
                         <n-input-number
-                            v-model:value="model.number"
                             placeholder="请输入"
                             :min="1"
                         />
@@ -702,7 +696,9 @@ const router = useRouter();
                             >
                                 取消
                             </n-button>
-                            <n-button type="info"> 确定 </n-button>
+                            <n-button type="info" @click="showModal = false">
+                                确定
+                            </n-button>
                         </n-space>
                     </div>
                 </template>

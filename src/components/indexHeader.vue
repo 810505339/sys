@@ -1,12 +1,13 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-03 09:24:41
+ * @LastEditTime: 2022-12-03 17:20:32
  * @LastEditors: yxx
  * @Description:首页头
  * @FilePath: \project20221116\src\components\indexHeader.vue
 -->
 <script setup lang="ts">
+import { CaretDownOutline } from '@vicons/ionicons5';
 const userStore = useUserStore();
 const style =
     userStore.themeColor[
@@ -21,7 +22,7 @@ const style =
     >
         <div class="w-100 mt-5">欢迎您来到综保信息系统！</div>
         <div class="text-8 leading-23 flex-1 text-center font-bold">
-            XXX综保信息系统
+            综合保障信息系统
         </div>
         <div class="w-100 text-right mt-5">
             <n-icon class="text-4 text-color">
@@ -39,7 +40,9 @@ const style =
                 </svg>
             </n-icon>
             <span class="mr-10 ml-2">用户名：superadmin</span>
-            <span class="button"> 型号 </span>
+            <span class="button">
+                型号 <n-icon :component="CaretDownOutline" />
+            </span>
             <n-icon class="text-4 ml-5 text-color">
                 <svg
                     version="1.1"

@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-12-02 16:17:42
+ * @LastEditTime: 2022-12-03 18:15:39
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\barChart.vue
@@ -9,16 +9,18 @@
 <script setup lang="ts">
 import { defineExpose } from 'vue'
 import * as echarts from 'echarts';
+
 const barDom = ref<HTMLElement>();
 const option: echarts.EChartsOption = {
     grid: {
         bottom: 25,
          right: 0,
-         left:50
+         left:50,
+         top:10
     },
     xAxis: {
         type: 'category',
-        data: ['本级产品1', '下级', '下级112'],
+        data: ['控制系统', '测发系统', '测发控系统'],
         axisLabel: {
             color: '#00C7FA',
         },
@@ -64,13 +66,13 @@ const option: echarts.EChartsOption = {
 
     ],
 };
-
+let barChart: any = {}
 /**
  * @description: 初始化图表所需配置项
  * @return {*}
  */
 const renderCharts = () => {
-    const barChart = echarts.init(barDom.value!);
+    barChart = echarts.init(barDom.value!);
     barChart.clear();
     barChart.setOption(option);
 };
@@ -80,7 +82,9 @@ defineExpose({
 onMounted(() => {
     renderCharts();
 });
-
+useResizeObserver(barDom, () => {
+  barChart.resize()
+})
 </script>
 
 <template>

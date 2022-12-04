@@ -39,7 +39,7 @@ const option: EChartsOption = {
     map: 'china',
     silent: false,
     roam: false,
-    zoom: 1.7,
+    zoom: 1.2,
     center: [105, 36],
     label: {
       show: true,
@@ -115,7 +115,7 @@ const hebeiOption: EChartsOption = {
     silent: false,
     roam: false,
     zoom: 1.1,
-    center: [115, 39],
+    center: [116, 39.5],
     label: {
       show: true,
       color: '#FFFFFF',

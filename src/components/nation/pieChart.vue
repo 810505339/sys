@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-12-02 16:17:07
+ * @LastEditTime: 2022-12-03 18:10:23
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\pieChart.vue
@@ -50,21 +50,35 @@ const option: echarts.EChartsOption = {
     },
     series: [
         {
-            data: [24, 58, 36],
+            data: [
+                {
+                    name: '01批',
+                    value: 24,
+                },
+                {
+                    name: '02批',
+                    value: 58,
+                },
+                {
+                    name: '03批',
+                    value: 36,
+                },
+            ],
             type: 'pie',
             radius: [40, 60],
             label: {
                 // alignTo: 'edge',
-                formatter: '{name|{b}}\n{time|{c} }',
-                minMargin: 5,
-                edgeDistance: 10,
-                lineHeight: 15,
-                rich: {
-                    time: {
-                        fontSize: 10,
-                        color: '#999',
-                    },
-                },
+                formatter: '{b}：{c}',
+                color:'#fff'
+                // minMargin: 5,
+                // edgeDistance: 10,
+                // lineHeight: 15,
+                // rich: {
+                //     time: {
+                //         fontSize: 10,
+                //         color: '#999',
+                //     },
+                // },
             },
             itemStyle: {
                 color: (params) => {
@@ -75,13 +89,13 @@ const option: echarts.EChartsOption = {
         },
     ],
 };
-
+let barChart: any = {};
 /**
  * @description: 初始化图表所需配置项
  * @return {*}
  */
 const renderCharts = () => {
-    const barChart = echarts.init(barDom.value!);
+    barChart = echarts.init(barDom.value!);
     barChart.clear();
     barChart.setOption(option);
 };
@@ -90,6 +104,9 @@ defineExpose({
 });
 onMounted(() => {
     renderCharts();
+});
+useResizeObserver(barDom, () => {
+    barChart.resize();
 });
 </script>
 

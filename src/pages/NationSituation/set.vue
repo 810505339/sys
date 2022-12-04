@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-03 09:34:20
+ * @LastEditTime: 2022-12-03 11:47:17
  * @LastEditors: yxx
  * @Description:配置页
  * @FilePath: \project20221116\src\pages\NationSituation\set.vue
@@ -343,11 +343,9 @@ function save() {
           </div>
         </template>
       </draggable>
-       <div flex justify-end mt-4>
-        <n-button type="info" @click="save">
+        <n-button absolute right-0 bottom--5 type="info" @click="save">
           确定
         </n-button>
-      </div>
     </div>
 
   </div>

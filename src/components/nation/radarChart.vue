@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-12-02 16:13:39
+ * @LastEditTime: 2022-12-03 18:03:00
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\radarChart.vue
@@ -84,13 +84,13 @@ const option: echarts.EChartsOption = {
         },
     ],
 };
-
+let barChart: any = {}
 /**
  * @description: 初始化图表所需配置项
  * @return {*}
  */
 const renderCharts = () => {
-    const barChart = echarts.init(lineDom.value!);
+    barChart = echarts.init(lineDom.value!);
     barChart.clear();
     barChart.setOption(option);
 };
@@ -100,6 +100,9 @@ defineExpose({
 onMounted(() => {
     renderCharts();
 });
+useResizeObserver(lineDom, () => {
+  barChart.resize()
+})
 </script>
 
 <template>

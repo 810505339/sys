@@ -1,12 +1,14 @@
 <!--
  * @Author: yxx
  * @Date: 2022-10-24 09:05:03
- * @LastEditTime: 2022-12-02 10:11:06
+ * @LastEditTime: 2022-12-03 17:50:34
  * @LastEditors: yxx
  * @Description:主要头
  * @FilePath: \project20221116\src\components\mainHeader.vue
 -->
 <script setup lang="ts">
+import { CaretDownOutline } from '@vicons/ionicons5';
+
 const userStore = useUserStore();
 const style =
     userStore.themeColor[
@@ -38,7 +40,7 @@ const style =
                 </svg>
             </n-icon>
             <span class="mr-10 ml-2">用户名：superadmin</span>
-            <span>型号</span>
+            <span>型号 <n-icon :component="CaretDownOutline" /></span>
             <n-icon class="text-3 ml-5 text-color">
                 <svg
                     version="1.1"
@@ -76,7 +78,7 @@ const style =
                     </g>
                 </svg>
             </n-icon>
-            <span class="mx-3">退出</span>
+            <router-link  to="/home" class="mx-3">退出</router-link>
         </div>
         <div class="" justify-center flex>
             <router-link

@@ -1,7 +1,7 @@
 <!--
  * @Author: yxx
  * @Date: 2022-11-25 10:19:55
- * @LastEditTime: 2022-12-02 17:21:47
+ * @LastEditTime: 2022-12-03 18:16:52
  * @LastEditors: yxx
  * @Description:
  * @FilePath: \project20221116\src\components\nation\barChart1.vue
@@ -9,12 +9,20 @@
 <script setup lang="ts">
 import { defineExpose } from 'vue';
 import * as echarts from 'echarts';
+const props = withDefaults(
+    defineProps<{
+        active?: Array;
+    }>(),
+    {}
+);
+let barChart: any = {}
 const barDom = ref<HTMLElement>();
 const option: echarts.EChartsOption = {
     grid: {
         bottom: 25,
         right: 0,
         left: 50,
+        top:25
     },
     xAxis: {
         type: 'category',
@@ -39,16 +47,17 @@ const option: echarts.EChartsOption = {
         },
     },
     tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow',
-        },
+        // trigger: 'axis',
+        // axisPointer: {
+        //     type: 'shadow',
+        // },
         formatter: (params) => {
-            return `${params[0].seriesName}：${params[0].value}/${params[1].seriesName}：${params[1].value}`;
+            // console.log(params)
+            // return
+            return `${params.seriesName}：${params.value}`;
         },
     },
     title: {
-        text: '寿命单位：年\n维修单位：月',
         textStyle: {
             // 标题样式
             color: '#00C7FA',
@@ -56,13 +65,13 @@ const option: echarts.EChartsOption = {
         },
 
         right: 0,
-        top: 10,
+        top: 1,
     },
     series: [
         {
             data: [50, 50, 50, 50],
             barWidth: '25%',
-            barMinWidth:25,
+            barMinWidth: 25,
             type: 'bar',
             stack: 'Ad',
             name: '总时长',
@@ -79,7 +88,7 @@ const option: echarts.EChartsOption = {
             },
         },
         {
-            data: [24, 58, 36, 20],
+            data: [24, 10, 36, 20],
             // barWidth: '25%',
             type: 'bar',
             stack: 'Ad',
@@ -105,8 +114,9 @@ const option: echarts.EChartsOption = {
  * @return {*}
  */
 const renderCharts = () => {
-    const barChart = echarts.init(barDom.value!);
+    barChart = echarts.init(barDom.value!);
     barChart.clear();
+    option.title.text = props.active == 1 ? '单位：月' : '单位：年';
     barChart.setOption(option);
 };
 defineExpose({
@@ -115,6 +125,9 @@ defineExpose({
 onMounted(() => {
     renderCharts();
 });
+useResizeObserver(barDom, () => {
+  barChart.resize()
+})
 </script>
 
 <template>
